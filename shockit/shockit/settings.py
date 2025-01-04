@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,6 +37,8 @@ LOGIN_URL = '/login/'
 
 SESSION_COOKIE_AGE = 86400
 CART_SESSION_ID = 'cart'
+STRIPE_API_KEY_PUBLISHABLE = 'pk_test_51QdTeFApoY4XyZ9psXsexstTmJGJXa5MecxkoeesS11QhFJ4sd0staKZaqYbLSDwkudGoIRA0SZPxYIV0FzZRObG00kVkIMnHa'
+STRIPE_API_KEY_HIDDEN = os.getenv("SECRET_STRIPE_API_KEY_DO_NOT_SHARE")
 
 # Application definition
 
