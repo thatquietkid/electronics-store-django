@@ -43,7 +43,6 @@ def start_order(request):
          zip_code=data['zipcode'], 
          place=data['place'], 
          phone=data['phone'],
-         payment_intent=payment_intent,
          paid=True,
          paid_amount=total_price
      )
