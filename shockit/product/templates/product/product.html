@@ -11,6 +11,9 @@
     <div class="information w-full lg:w-2/5 lg:p-6">
         <h1 class="text-2xl">{{product.name}}</h1>
         <p class="mt-1 text-gray-400">${{product.get_display_price}}</p>
+        {% if product.get_rating > 0 %}
+            <p class="mt-1 text-gray-400">Rating: {{product.get_rating}} / 6</p>
+        {% endif %}
         {% if product.description %}
             <p class="mt-6 text-gray-700">
                 {{product.description}}
@@ -25,6 +28,46 @@
         >
             Add to cart
         </a>
+    </div>
+    <div class="w-full mt-6 ">
+        <h2 class="text-3xl font-semibold text-gray-800 text-center mt-6 mb-4">Reviews</h2>
+        {% if request.user.is_authenticated %}
+            <form method="post" action="." class="p-6 bg-white shadow-lg rounded-lg max-w-lg mx-auto mt-8 mb-8">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="rating" class="block text-lg font-medium text-gray-700">Rating</label>
+                    <select name="rating" id="rating" class="mt-2 p-3 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="content" class="block text-lg font-medium text-gray-700">Comment</label>
+                    <textarea name="content" id="content" rows="4" class="mt-2 p-3 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your comment..."></textarea>
+                </div>
+                
+                <div>
+                    <button type="submit" class="w-full py-3 bg-purple-500 text-white rounded-xl hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit</button>
+                </div>
+            </form>
+        {% endif %}
+        {% for review in product.reviews.all %}
+            <div class="bg-gray-100 p-6 rounded-xl shadow-lg mb-6 max-w-xl mx-auto">
+                <div class="flex justify-between mb-4">
+                    <span class="text-lg font-semibold text-green-600">Rating: {{review.rating}}/6</span>
+                    <span class="text-sm text-gray-500">{{review.created_at|date:"Y-m-d"}}</span>
+                </div>
+                <div>
+                    <strong class="block text-xl font-semibold text-gray-800 mb-2">Comment:</strong>
+                    <p class="text-gray-700 leading-relaxed">{{review.content}}</p>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

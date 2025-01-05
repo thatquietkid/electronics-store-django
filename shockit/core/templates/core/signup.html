@@ -8,7 +8,7 @@
             {% csrf_token %}
             <div>
                 <label>Username</label>
-                <input type="text" name="username" class="w-full mt-2 py-4 px-6 bg-white rounded-xl" required />
+                <input type="text" name="username" class="w-full mt-2 py-4 px-6 bg-white rounded-xl" placeholder="Username" required />
             </div>
             <div>
                 <label>First Name</label>
@@ -39,7 +39,7 @@
                     {% endfor %}
                 {% endfor %}
             {% endif %}
-            <div>
+            <div class="flex justify-center">
                 <button class="py-4 px-6 rounded-xl text-white bg-purple-500 hover:bg-purple-700">Submit</button>
             </div>
         </form>

@@ -23,10 +23,13 @@
                     {% endfor %}
                 {% endfor %}
             {% endif %}
-            <div>
+            <div class="flex justify-center">
                 <button class="py-4 px-6 rounded-xl text-white bg-purple-500 hover:bg-purple-700">Submit</button>
             </div>
         </form>
+    </div>
+    <div class="w-full mt-6 text-center">
+        <a href="{% url 'signup' %}" class="text-purple-500 hover:underline">Create an account</a>
     </div>
 </div>
 {% endblock %}
