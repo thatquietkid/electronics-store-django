@@ -6,6 +6,16 @@
 
 **Shockit Electronics** is an e-commerce platform designed to offer a seamless shopping experience for electronic products. This project is built using **Django** as the backend framework, **Tailwind CSS** for styling, and **HTMX** to provide dynamic and responsive interactions without the need for complex JavaScript frameworks.
 
+## Snapshots:
+- **Home page**:
+![Home page](https://github.com/thatquietkid/electronics-store-django/blob/main/assets/home.png)
+- **Shop**:
+![Shop](https://github.com/thatquietkid/electronics-store-django/blob/main/assets/shop.png)
+- **Checkout**:
+![Checkout](https://github.com/thatquietkid/electronics-store-django/blob/main/assets/checkout.png)
+- **Pay using Stripe**:
+![Payment window](https://github.com/thatquietkid/electronics-store-django/blob/main/assets/checkout-2.png)
+
 ## Features
 
 - **Product Listings**: Browse through a wide range of electronic products.
