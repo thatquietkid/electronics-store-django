@@ -13,6 +13,9 @@ def frontpage(request):
     products = Product.objects.all()[0:8]
     return render(request, 'core/frontpage.html',{'products':products})
 
+def about(request):
+    return render(request, 'core/about.html')
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
